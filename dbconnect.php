@@ -2,9 +2,9 @@
 
 /* Dibuat Oleh D_ziem */
 
-  $DB_host = "dbsosmedia.cjorhe5jzkni.us-east-2.rds.amazonaws.com";
+  $DB_host = "";
   $DB_user = "admin";
-  $DB_pass = "farman17";
+  $DB_pass = "";
   $DB_name = "stok_barang";
   
   $MySQLi_CON = new MySQLi($DB_host,$DB_user,$DB_pass,$DB_name);
