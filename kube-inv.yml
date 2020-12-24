@@ -1,0 +1,48 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: inv-service   
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  #type: LoadBalancer
+  selector:
+    app: invapp
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: inv-deployment
+spec:
+  selector:
+    matchLabels:
+      app: invapp
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: invapp
+    spec:
+      containers:
+      - name: inventory
+        image: farman17/inventory:5.0
+        ports:
+        - containerPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: inv-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: nodejs.dailybugis.my.id
+    http:
+      paths:
+      #- path: /
+      - backend:
+          serviceName: inv-service 
+          servicePort: 80
+
