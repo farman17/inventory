@@ -38,7 +38,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: nodejs.dailybugis.my.id
+  - host: inventory.dailybugis.my.id
     http:
       paths:
       #- path: /
