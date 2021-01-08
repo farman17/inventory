@@ -30,7 +30,7 @@ $tablehistoryrow = $tablehistoryquery->num_rows;
 	<body>
 		<header>
 			<div class="left">
-				STOK BARANG by FARMAN
+				STOK BARANG APP version 1.0
 			</div>
 			<div class="right">
 				Hi , <?php echo htmlentities($username) ?> |
