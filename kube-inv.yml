@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: inventory
-        image: farman17/inventory:5.0
+        image: farman17/inventory
         ports:
         - containerPort: 80
 ---
